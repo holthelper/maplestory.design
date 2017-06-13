@@ -2,6 +2,7 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
+  font-family: "Muli", sans-serif;
 }
 
 .App-logo {
@@ -10,15 +11,36 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 24px;
+  background: #488AC7 url('crrioseaship.png') left no-repeat;
+  background-size: contain;
+  height: 64px;
   font-size: 24px;
-  padding: 20px;
+  padding-top: 2px;
   color: white;
 }
 
-.App-header b {
-  padding-left: 8px;
+.App-header .logo {
+    padding: 5px 20px 0px 70px;
+    display: block;
+}
+
+.App-header .logo a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.App-header .alpha {
+  background: white;
+  padding: 2px 3px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #488AC7;
+}
+
+.App-header .desc {
+  font-size: 14px;
+  display: block;
 }
 
 .App-intro {
