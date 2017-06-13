@@ -16,7 +16,7 @@ const cellMeasurerCache = new CellMeasurerCache({
   fixedWidth: true
 })
 
-const itemListPromise = axios.get('http://labs.maplestory.io/api/item/category/equip');
+const itemListPromise = axios.get('https://labs.maplestory.io/api/item/category/equip');
 
 class ItemListing extends Component {
   constructor(props) {
