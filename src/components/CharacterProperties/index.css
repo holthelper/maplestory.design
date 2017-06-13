@@ -4,10 +4,10 @@
   left: 0;
   right: 0;
   height: 64px;
-  background: #222;
+  background: #488AC7;
   display: flex;
   padding: 0 16px;
-  color: #dedede;
+  color: white;
   font-size: 16px;
   align-items: center;
 }
@@ -18,9 +18,20 @@
   margin: 0 64px 0 0;
 }
 
-.facial-expression, .action {
+.character-properties a {
+  color: white;
+}
+
+.facial-expression, .action, .disclaimer {
   display: flex;
   flex-direction: column;
   margin: 0 8px;
+}
+
+.facial-expression, .action {
   width: 200px;
+}
+
+.disclaimer {
+  display: inline-block;
 }

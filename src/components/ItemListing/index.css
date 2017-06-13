@@ -4,7 +4,7 @@
   top: 64px;
   bottom: 64px;
   width: 25%;
-  min-width: 400px;
+  min-width: 450px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,28 @@
 }
 
 .item-listing-categories ul {
-  padding: 0 0 0 24px;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+.item-listing-categories ul .category {
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(0,0,0,0.4);
+  padding: 10px 10px;
+  display: block;
+  font-weight: bold;
+  background: #488AC7;
+  color: white;
+}
+
+.item-listing-categories ul ul li {
+  padding: 10px 15px;
+  display: block;
+}
+
+.item-listing-categories ul ul li:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
 .item-listing-icons {
