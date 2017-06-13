@@ -175,11 +175,13 @@ class ItemListing extends Component {
   cellRenderer ({ index, key, parent, style }) {
     const item = this.showIcons[index]
 
+    if (!item) return
+
     return (
       <CellMeasurer
         cache={cellMeasurerCache}
         index={index}
-        key={key}
+        key={item.Id}
         parent={parent}
       >
         <div className="item-img-container" style={{
