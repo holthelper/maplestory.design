@@ -11,7 +11,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      selectedItems: {},
+      selectedItems: JSON.parse((localStorage || [])['selectedItems'] || '{}'),
       action: 'stand1',
       emotion: 'default'
     }
@@ -62,26 +62,24 @@ class App extends Component {
     }
 
     selectedItems[item.TypeInfo.SubCategory] = item
-
-    console.log('New Items: ', selectedItems)
-
-    this.setState({
-      selectedItems
-    })
+    this.updateItems(selectedItems)
   }
 
   userRemovedItem (item) {
     let selectedItems = {
       ...this.state.selectedItems,
     }
-
     delete selectedItems[item.TypeInfo.SubCategory]
+    this.updateItems(selectedItems);
+  }
 
+  updateItems (selectedItems) {
     console.log('New Items: ', selectedItems)
-
     this.setState({
       selectedItems
     })
+
+    localStorage['selectedItems'] = JSON.stringify(selectedItems)
   }
 }
 
