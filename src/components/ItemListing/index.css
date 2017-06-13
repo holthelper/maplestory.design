@@ -11,9 +11,9 @@
 }
 
 .item-listing-header {
-  min-height: 36px;
   font-size: 24px;
   line-height: 36px;
+  min-height: 36px;
   border-bottom: 1px solid #222;
   padding: 0 16px;
   display: flex;
@@ -52,4 +52,9 @@
   width: 32px;
   height: 32px;
   padding: 6px;
+}
+
+.item-listing-icons .LazyLoad img {
+  width: 32px;
+  height: 32px;
 }

@@ -25,6 +25,7 @@
   align-self: center;
   max-width: 32px;
   max-height: 32px;
+  overflow: hidden;
 }
 
 .equipped-items-item-meta {
