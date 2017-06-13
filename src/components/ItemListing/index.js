@@ -4,7 +4,7 @@ import axios from 'axios'
 import _ from 'lodash'
 import LazyLoad from 'react-lazy-load'
 
-const itemListPromise = axios.get('http://localhost:5000/api/item/category/equip');
+const itemListPromise = axios.get('http://labs.maplestory.io/api/item/category/equip');
 
 class ItemListing extends Component {
   constructor(props) {
