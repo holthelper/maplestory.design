@@ -1,9 +1,28 @@
 import React, { Component } from 'react'
 import './index.css'
 import _ from 'lodash'
+import axios from 'axios'
 
 class CharacterProperties extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      actions: ['stand1', 'stand2']
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.equippedItems === this.props.equippedItems) return
+    const { equippedItems } = this.props
+
+    const itemIds = _.values(equippedItems).map(item => item.Id)
+    axios.get(`https://labs.maplestory.io/api/character/actions/${itemIds.join(',')}`)
+      .then(response => this.setState({actions: response.data}))
+  }
+
   render() {
+    const { actions } = this.state
+
     return (
       <div className='character-properties'>
         <span>Character Properties</span>
@@ -15,13 +34,20 @@ class CharacterProperties extends Component {
         </div>
         <div className="action">
           <span>Pose / Action</span>
-          <select>
-            <option>Stand1</option>
-            <option>Stand2</option>
+          <select onChange={this.changeAction.bind(this)}>
+            {
+              actions.map(action => (
+                <option value={action}>{action}</option>
+              ))
+            }
           </select>
         </div>
       </div>
     )
+  }
+
+  changeAction (e) {
+    this.props.onChangeAction(e.target.value)
   }
 }
 

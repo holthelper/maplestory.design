@@ -3,13 +3,10 @@ import './index.css'
 
 class PlayerCanvas extends Component {
   render() {
-    const { selectedItems } = this.props
+    const { selectedItems, action } = this.props
     return (
       <div className="canvas">
-        {selectedItems.length ?
-          <img src={`https://labs.maplestory.io/api/character/center/2000/${selectedItems.join(',')}`} /> :
-          <img src='https://labs.maplestory.io/api/character/base/2000' />
-        }
+        <img src={`https://labs.maplestory.io/api/character/center/2000/${(selectedItems.join(',') || 1102039)}/{action}`} /> :
       </div>
     )
   }

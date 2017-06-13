@@ -11,24 +11,37 @@ class App extends Component {
     super(props)
 
     this.state = {
-      selectedItems: {}
+      selectedItems: {},
+      action: 'stand1'
     }
   }
 
   render() {
-    const { selectedItems } = this.state
+    const { selectedItems, action } = this.state
 
     return (
       <div className="App">
         <div className="App-header">
           <span>Crrio<b>MapleStory Simulator</b></span>
         </div>
-        <PlayerCanvas selectedItems={_.values(selectedItems).map(item => item.Id)} />
+        <PlayerCanvas
+          selectedItems={_.values(selectedItems).map(item => item.Id)}
+          action={action} />
         <ItemListing onItemSelected={this.userSelectedItem.bind(this)} />
-        <EquippedItems equippedItems={selectedItems} onRemoveItem={this.userRemovedItem.bind(this)} />
-        <CharacterProperties />
+        <EquippedItems
+          equippedItems={selectedItems}
+          onRemoveItem={this.userRemovedItem.bind(this)} />
+        <CharacterProperties
+          equippedItems={selectedItems}
+          action={action}
+          onChangeAction={this.userChangedAction.bind(this)} />
       </div>
     )
+  }
+
+  userChangedAction (action) {
+    this.setState({ action })
+    console.log('Changed action: ', action)
   }
 
   userSelectedItem (item) {
