@@ -9,7 +9,7 @@ class PlayerCanvas extends Component {
 
     return (
       <div className="canvas">
-        <img src={`https://labs.maplestory.io/api/character/center/2000/${(itemsWithEmotion.join(',') || 1102039)}/${action}`} /> :
+        <img src={`https://labs.maplestory.io/api/character/center/2000/${(itemsWithEmotion.join(',') || 1102039)}/${action}`} alt="character"/>
       </div>
     )
   }
