@@ -4,5 +4,11 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const isOnDomain = window.location.host.indexOf('.design') !== -1
+const isOnHttps = window.location.protocol.indexOf('https') !== -1
+if (isOnDomain && !isOnHttps)
+  window.location.protocol = 'https'
+else {
+  ReactDOM.render(<App />, document.getElementById('root'));
+  registerServiceWorker();
+}
