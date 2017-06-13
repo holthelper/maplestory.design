@@ -6,7 +6,7 @@ class PlayerCanvas extends Component {
     const { selectedItems, action } = this.props
     return (
       <div className="canvas">
-        <img src={`https://labs.maplestory.io/api/character/center/2000/${(selectedItems.join(',') || 1102039)}/{action}`} /> :
+        <img src={`https://labs.maplestory.io/api/character/center/2000/${(selectedItems.join(',') || 1102039)}/${action}`} /> :
       </div>
     )
   }

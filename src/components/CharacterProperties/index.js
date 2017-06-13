@@ -9,6 +9,10 @@ class CharacterProperties extends Component {
     this.state = {
       actions: ['stand1', 'stand2']
     }
+
+    // Populate true action list
+    axios.get(`https://labs.maplestory.io/api/character/actions/1040004`)
+      .then(response => this.setState({actions: response.data}))
   }
 
   componentDidUpdate(prevProps) {
