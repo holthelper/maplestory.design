@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <span>Crrio<b>Maplestory Simulator</b></span>
+          <span>Crrio<b>MapleStory Simulator</b></span>
         </div>
         <PlayerCanvas selectedItems={_.values(selectedItems).map(item => item.Id)} />
         <ItemListing onItemSelected={this.userSelectedItem.bind(this)} />
