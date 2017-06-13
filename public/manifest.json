@@ -1,15 +1,20 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MapleStory.Design",
+  "name": "MapleStory Designer",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "192x192",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "1024x1024",
       "type": "image/png"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#488ac7",
   "background_color": "#ffffff"
 }
