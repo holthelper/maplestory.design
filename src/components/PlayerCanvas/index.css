@@ -1,0 +1,11 @@
+.canvas {
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('./graphy.png');
+}
