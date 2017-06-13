@@ -63,7 +63,7 @@ class CharacterProperties extends Component {
           <select disabled={!equippedItems.Face} onChange={this.changeEmotion.bind(this)} value={emotion}>
             {
               emotions.map(e => (
-                <option value={e}>{e}</option>
+                <option value={e} key={e}>{e}</option>
               ))
             }
           </select>
@@ -73,7 +73,7 @@ class CharacterProperties extends Component {
           <select onChange={this.changeAction.bind(this)} value={action}>
             {
               actions.map(a => (
-                <option value={a}>{a}</option>
+                <option value={a} key={a}>{a}</option>
               ))
             }
           </select>
