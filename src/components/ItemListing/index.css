@@ -4,6 +4,7 @@
   top: 64px;
   bottom: 64px;
   width: 25%;
+  min-width: 400px;
   background: white;
   display: flex;
   flex-direction: column;
