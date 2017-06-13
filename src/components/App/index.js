@@ -3,6 +3,7 @@ import './index.css'
 import PlayerCanvas from '../PlayerCanvas'
 import ItemListing from '../ItemListing'
 import EquippedItems from '../EquippedItems'
+import CharacterProperties from '../CharacterProperties'
 import _ from 'lodash'
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
         <PlayerCanvas selectedItems={_.values(selectedItems).map(item => item.Id)} />
         <ItemListing onItemSelected={this.userSelectedItem.bind(this)} />
         <EquippedItems equippedItems={selectedItems} onRemoveItem={this.userRemovedItem.bind(this)} />
+        <CharacterProperties />
       </div>
     )
   }
