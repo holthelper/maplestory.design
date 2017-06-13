@@ -12,12 +12,13 @@ class App extends Component {
 
     this.state = {
       selectedItems: {},
-      action: 'stand1'
+      action: 'stand1',
+      emotion: 'default'
     }
   }
 
   render() {
-    const { selectedItems, action } = this.state
+    const { selectedItems, action, emotion } = this.state
 
     return (
       <div className="App">
@@ -29,7 +30,8 @@ class App extends Component {
         </div>
         <PlayerCanvas
           selectedItems={_.values(selectedItems).map(item => item.Id)}
-          action={action} />
+          action={action}
+          emotion={emotion} />
         <ItemListing onItemSelected={this.userSelectedItem.bind(this)} />
         <EquippedItems
           equippedItems={selectedItems}
@@ -37,9 +39,16 @@ class App extends Component {
         <CharacterProperties
           equippedItems={selectedItems}
           action={action}
-          onChangeAction={this.userChangedAction.bind(this)} />
+          emotion={emotion}
+          onChangeAction={this.userChangedAction.bind(this)}
+          onChangeEmotion={this.userChangedEmotion.bind(this)} />
       </div>
     )
+  }
+
+  userChangedEmotion (emotion) {
+    this.setState({ emotion })
+    console.log('Changed emotion: ', emotion)
   }
 
   userChangedAction (action) {

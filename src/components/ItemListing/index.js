@@ -10,6 +10,7 @@ class ItemListing extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      items: [],
       categories: {},
       categoryNames: {},
       selectedCategory: [],
@@ -26,6 +27,7 @@ class ItemListing extends Component {
         const categoryNames = _.mapValues(categories, _.keys);
 
         this.setState({
+          items: response.data,
           categories,
           categoryNames
         })
@@ -34,14 +36,14 @@ class ItemListing extends Component {
   }
 
   render() {
-    const { categoryNames, selectedCategory } = this.state
+    const { categoryNames, selectedCategory, items } = this.state
     const search = this.state.search.toLowerCase()
 
-    const showIcons = !search ? selectedCategory : selectedCategory.filter((item, i) => {
+    const showIcons = !search ? selectedCategory : items.filter((item, i) => {
       return (item.Name || '').toLowerCase().indexOf(search) != -1 ||
         item.Id.toString().toLowerCase().indexOf(search) != -1 ||
         (item.desc || '').toLowerCase().indexOf(search) != -1
-    })
+    }).slice(0, 100)
 
     return (
       <div className='item-listing'>
