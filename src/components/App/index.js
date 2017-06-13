@@ -22,7 +22,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <span>Crrio<b>MapleStory Simulator</b></span>
+          <span className="logo">
+            <b>MapleStory:</b> Design<br/>
+            <span className="desc"><span className="alpha">Public Alpha</span> A <a href="//crr.io/">Crrio</a> Project</span>
+          </span>
         </div>
         <PlayerCanvas
           selectedItems={_.values(selectedItems).map(item => item.Id)}

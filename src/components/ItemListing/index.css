@@ -4,21 +4,23 @@
   top: 64px;
   bottom: 64px;
   width: 25%;
-  min-width: 400px;
+  min-width: 450px;
   background: white;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #222;
+  border-right: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
 }
 
 .item-listing-header {
-  font-size: 24px;
+  font-size: 18px;
   line-height: 36px;
   min-height: 36px;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
   padding: 0 16px;
   display: flex;
   justify-content: space-between;
+  color: #3F3F3F;
 }
 
 .item-listing-header input[type=search] {
@@ -33,13 +35,34 @@
 
 .item-listing-categories {
   flex: 1;
-  border-right: 1px solid #222;
+  border-right: 1px solid rgba(0,0,0,0.2);
   max-height: 100%;
   overflow: auto;
 }
 
 .item-listing-categories ul {
-  padding: 0 0 0 24px;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+.item-listing-categories ul .category {
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(0,0,0,0.4);
+  padding: 10px 10px;
+  display: block;
+  font-weight: bold;
+  background: #488AC7;
+  color: white;
+}
+
+.item-listing-categories ul ul li {
+  padding: 10px 15px;
+  display: block;
+}
+
+.item-listing-categories ul ul li:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
 .item-listing-icons {

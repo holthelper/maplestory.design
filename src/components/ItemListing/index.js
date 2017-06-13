@@ -46,14 +46,14 @@ class ItemListing extends Component {
     return (
       <div className='item-listing'>
         <div className='item-listing-header'>
-          Gallery <input type="search" value={search} onChange={this.search.bind(this)} />
+          Gallery <input type="search" value={search} onChange={this.search.bind(this)} placeholder="Search.."/>
         </div>
         <div className='item-listing-content'>
           <div className='item-listing-categories'>
           <ul>
           {
             _.map(categoryNames, (subCategories, category) => {
-              return (<li key={category} onClick={this.selectPrimaryCategory.bind(this, category)}>{category}
+              return (<li key={category} onClick={this.selectPrimaryCategory.bind(this, category)}><span className="category">{category}</span>
               <ul>
                 {
                   subCategories.map(subCategory => <li key={subCategory} onClick={this.selectChildCategory.bind(this, category, subCategory)}>{subCategory}</li>)
