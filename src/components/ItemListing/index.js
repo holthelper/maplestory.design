@@ -34,7 +34,14 @@ class ItemListing extends Component {
   }
 
   render() {
-    const { categoryNames, selectedCategory, search } = this.state
+    const { categoryNames, selectedCategory } = this.state
+    const search = this.state.search.toLowerCase()
+
+    const showIcons = !search ? selectedCategory : selectedCategory.filter((item, i) => {
+      return (item.Name || '').toLowerCase().indexOf(search) != -1 ||
+        item.Id.toString().toLowerCase().indexOf(search) != -1 ||
+        (item.desc || '').toLowerCase().indexOf(search) != -1
+    })
 
     return (
       <div className='item-listing'>
@@ -58,7 +65,7 @@ class ItemListing extends Component {
           </div>
           <div className='item-listing-icons'>
             {
-              selectedCategory.map(item => (
+              showIcons.map(item => (
                 <LazyLoad height={32} width={32} key={item.Id}>
                   <img src={`https://labs.maplestory.io/api/item/${item.Id}/icon`} onClick={this.selectItem.bind(this, item)} alt={item.Name} />
                 </LazyLoad>
