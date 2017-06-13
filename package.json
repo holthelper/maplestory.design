@@ -10,7 +10,7 @@
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-lazy-load": "^3.0.12"
+    "react-virtualized": "^9.8.0"
   },
   "scripts": {
     "start": "react-scripts start",

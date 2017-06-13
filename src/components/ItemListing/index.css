@@ -69,16 +69,19 @@
   flex: 1;
   max-height: 100%;
   overflow: auto;
+  padding: 6px 0 0 6px;
 }
 
-.item-listing-icons .LazyLoad {
+.item-img-container {
   display: inline-block;
   width: 32px;
   height: 32px;
-  padding: 6px;
+  min-width: 32px;
+  min-height: 32px;
+  overflow: hidden;
 }
 
-.item-listing-icons .LazyLoad img {
+.item-img-container img {
   max-width: 32px;
   max-height: 32px;
   overflow: hidden;

@@ -2,7 +2,19 @@ import React, { Component } from 'react'
 import './index.css'
 import axios from 'axios'
 import _ from 'lodash'
-import LazyLoad from 'react-lazy-load'
+import {
+  CellMeasurer,
+  CellMeasurerCache,
+  createMasonryCellPositioner,
+  Masonry,
+  AutoSizer
+} from 'react-virtualized';
+
+const cellMeasurerCache = new CellMeasurerCache({
+  defaultHeight: 32,
+  defaultWidth: 32,
+  fixedWidth: true
+})
 
 const itemListPromise = axios.get('http://labs.maplestory.io/api/item/category/equip');
 
@@ -13,9 +25,13 @@ class ItemListing extends Component {
       items: [],
       categories: {},
       categoryNames: {},
-      selectedCategory: [],
-      search: ''
+      selectedCategory: null,
+      search: '',
+      gutterSize: 6,
+      columnWidth: 32
     }
+
+    this._cache = cellMeasurerCache
 
     itemListPromise.then(response => {
       if(response.status === 200) {
@@ -39,11 +55,13 @@ class ItemListing extends Component {
     const { categoryNames, selectedCategory, items } = this.state
     const search = this.state.search.toLowerCase()
 
-    const showIcons = !search ? selectedCategory : items.filter((item, i) => {
+    this.showIcons = !search ? (selectedCategory || items) : items.filter((item, i) => {
       return (item.Name || '').toLowerCase().indexOf(search) !== -1 ||
         item.Id.toString().toLowerCase().indexOf(search) !== -1 ||
         (item.desc || '').toLowerCase().indexOf(search) !== -1
-    }).slice(0, 100)
+    })
+
+    this.showIcons = this.showIcons.filter(item => item && item.Id)
 
     return (
       <div className='item-listing'>
@@ -66,20 +84,115 @@ class ItemListing extends Component {
           </ul>
           </div>
           <div className='item-listing-icons'>
-            {
-              showIcons.map(item => (
-                <LazyLoad height={32} width={32} key={item.Id}>
-                  <img
-                    src={`https://labs.maplestory.io/api/item/${item.Id}/icon`}
-                    onClick={this.selectItem.bind(this, item)}
-                    alt={item.Name}
-                    title={item.Name} />
-                </LazyLoad>
-              ))
-            }
+            { this._renderAutoSizer({ height: 32 }) }
           </div>
         </div>
       </div>
+    )
+  }
+
+  _renderAutoSizer ({ height }) {
+    this._height = height || 32
+
+    return (
+      <AutoSizer
+        onResize={this._onResize.bind(this)}
+      >
+        {this._renderMasonry.bind(this)}
+      </AutoSizer>
+    )
+  }
+
+  _renderMasonry({ height, width }) {
+    this._width = width
+    this._height = height
+
+    this._calculateColumnCount()
+    this._initCellPositioner()
+
+    return <Masonry
+      cellCount={this.showIcons.length - 1}
+      cellMeasurerCache={cellMeasurerCache}
+      cellPositioner={this._cellPositioner}
+      cellRenderer={this.cellRenderer.bind(this)}
+      ref={this._setMasonryRef.bind(this)}
+      width={width}
+      height={this._height}
+      />
+  }
+
+  _calculateColumnCount () {
+    const {
+      columnWidth,
+      gutterSize
+    } = this.state
+
+    this._columnCount = Math.floor(this._width / (columnWidth + gutterSize))
+  }
+
+  _initCellPositioner () {
+    if (typeof this._cellPositioner === 'undefined') {
+      const {
+        columnWidth,
+        gutterSize
+      } = this.state
+
+      this._cellPositioner = createMasonryCellPositioner({
+        cellMeasurerCache: this._cache,
+        columnCount: this._columnCount,
+        columnWidth,
+        spacer: gutterSize
+      })
+    }
+  }
+
+  _onResize ({ height, width }) {
+    this._width = width
+
+    this._columnHeights = {}
+    this._calculateColumnCount()
+    this._resetCellPositioner()
+    this._masonry.recomputeCellPositions()
+  }
+
+  _resetCellPositioner () {
+    const {
+      columnWidth,
+      gutterSize
+    } = this.state
+
+    this._cellPositioner.reset({
+      columnCount: this._columnCount,
+      columnWidth,
+      spacer: gutterSize
+    })
+  }
+
+  _setMasonryRef (ref) {
+    this._masonry = ref
+  }
+
+  cellRenderer ({ index, key, parent, style }) {
+    const item = this.showIcons[index]
+
+    return (
+      <CellMeasurer
+        cache={cellMeasurerCache}
+        index={index}
+        key={key}
+        parent={parent}
+      >
+        <div className="item-img-container" style={{
+          ...style,
+          height: 32
+        }}>
+          <img
+            src={`https://labs.maplestory.io/api/item/${item.Id}/icon`}
+            onClick={this.selectItem.bind(this, item)}
+            alt={item.Name}
+            title={item.Name} />
+        </div>
+      </CellMeasurer>
     )
   }
 
