@@ -16,10 +16,42 @@
   border-radius: 4px;
   outline: none;
   padding: 20px;
-  min-width: 600px;
+  max-width: 640px;
   min-height: 400px;
+  font-family: "Muli", sans-serif;
+  position: relative;
+}
+
+.intro-modal .modal-desc {
+  font-size: 16px;
+  line-height: 0px;
+}
+
+.intro-modal h1 {
+  font-weight: 200;
+  margin-top: 0px;
+  line-height: 24px;
+  margin-bottom: 40px;
+}
+
+.intro-modal h3 {
+  font-weight: 200;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  line-height: 0px;
+  font-size: 24px;
+}
+
+.intro-modal .avatar-box {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.intro-modal .avatar-box img {
+  margin-bottom: calc(-50% + 20px);
 }
 
 .modal-blur {
-  filter: blur(5px);
+  filter: blur(13px);
 }

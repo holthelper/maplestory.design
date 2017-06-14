@@ -19,7 +19,7 @@ class EquippedItems extends Component {
                   <div className='equipped-items-item-meta-name'>{item.Name}</div>
                   <div className='equipped-items-item-meta-category'>{item.TypeInfo.SubCategory}</div>
                 </div>
-                <span onClick={this.removeItem.bind(this, item)}>X</span>
+                <span onClick={this.removeItem.bind(this, item)}><i className="fa fa-times"></i></span>
               </div>
             ))
           }

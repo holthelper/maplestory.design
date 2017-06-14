@@ -53,3 +53,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* Generic Styles */
+.right {
+  float: right;
+}
+.left {
+  float: left;
+}
+
+a {
+  color: #488AC7;
+}

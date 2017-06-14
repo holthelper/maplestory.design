@@ -23,6 +23,11 @@
 .equipped-items-item {
   display: flex;
   padding: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.equipped-items-item:hover {
+  background: whitesmoke !important;
 }
 
 .equipped-items-item img {
@@ -35,4 +40,8 @@
 .equipped-items-item-meta {
   padding: 0 0 0 8px;
   flex-grow: 1;
+}
+
+.equipped-items-item-meta-category {
+  font-size: 12px;
 }
