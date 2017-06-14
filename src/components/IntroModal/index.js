@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 import './index.css'
-import _ from 'lodash'
 import Modal from 'react-modal'
 
 class IntroModal extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Modal

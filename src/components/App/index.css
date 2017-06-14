@@ -1,8 +1,10 @@
 .App {
-  position: relative;
-  height: calc(100vh - 90px);
   overflow: hidden;
-  font-family: "Muli", sans-serif;
+  font-family: Muli,sans-serif;
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  bottom: 0px;
 }
 
 .App-logo {
