@@ -10,6 +10,17 @@ import {
   AutoSizer
 } from 'react-virtualized';
 
+const blacklistSubcategories = [
+  "Monster Battle",
+  "Skill Effect",
+  "Pet Use",
+  "Test Armor",
+  "Test Weapon",
+  "Shovel",
+  "Pickaxe",
+  "Totem"
+]
+
 const cellMeasurerCache = new CellMeasurerCache({
   defaultHeight: 32,
   defaultWidth: 32,
@@ -40,8 +51,6 @@ class ItemListing extends Component {
           _.groupBy(response.data, item => item.TypeInfo.Category),
           items => _.groupBy(items, item => item.TypeInfo.SubCategory)
         );
-
-//        const categoryNames = _.map
 
         const categoryNames = _.mapValues(categories, _.keys);
 
@@ -80,7 +89,7 @@ class ItemListing extends Component {
               <span className={'category' + (category === categoryNameSelected ? ' active' : '')}>{category}</span>
               <ul>
                 {
-                  subCategories.map(subCategory => <li
+                  subCategories.filter(categoryName => blacklistSubcategories.indexOf(categoryName) === -1).map(subCategory => <li
                     key={subCategory}
                     className={subCategory === categoryNameSelected ? 'active' : ''}
                     onClick={this.selectChildCategory.bind(this, category, subCategory)}>
