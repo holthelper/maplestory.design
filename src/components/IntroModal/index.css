@@ -46,6 +46,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
+  overflow: hidden;
 }
 
 .intro-modal .avatar-box img {
