@@ -41,6 +41,8 @@ class ItemListing extends Component {
           items => _.groupBy(items, item => item.TypeInfo.SubCategory)
         );
 
+//        const categoryNames = _.map
+
         const categoryNames = _.mapValues(categories, _.keys);
 
         this.setState({
