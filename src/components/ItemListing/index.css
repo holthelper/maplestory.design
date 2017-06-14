@@ -1,7 +1,7 @@
 .item-listing {
   position: absolute;
   left: 0;
-  top: 64px;
+  top: 128px;
   bottom: 64px;
   width: 25%;
   min-width: 450px;
