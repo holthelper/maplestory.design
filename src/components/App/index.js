@@ -19,6 +19,7 @@ class App extends Component {
       selectedItems: JSON.parse((localStorage || [])['selectedItems'] || '{}'),
       action: 'stand1',
       emotion: 'default',
+      skin: Number(localStorage['skin']) || 2000,
       isModalOpen: isOpen
     }
 
@@ -31,7 +32,7 @@ class App extends Component {
   }
 
   render() {
-    const { selectedItems, action, emotion, isModalOpen } = this.state
+    const { selectedItems, action, emotion, skin, isModalOpen } = this.state
     this.updateBannerAdBlur()
 
     return (
@@ -45,7 +46,8 @@ class App extends Component {
         <PlayerCanvas
           selectedItems={_.values(selectedItems).map(item => item.Id)}
           action={action}
-          emotion={emotion} />
+          emotion={emotion}
+          skin={skin} />
         <ItemListing onItemSelected={this.userSelectedItem.bind(this)} />
         <EquippedItems
           equippedItems={selectedItems}
@@ -54,8 +56,10 @@ class App extends Component {
           equippedItems={selectedItems}
           action={action}
           emotion={emotion}
+          skin={skin}
           onChangeAction={this.userChangedAction.bind(this)}
-          onChangeEmotion={this.userChangedEmotion.bind(this)} />
+          onChangeEmotion={this.userChangedEmotion.bind(this)}
+          onChangeSkin={this.userChangedSkin.bind(this)} />
         <IntroModal
           isOpen={isModalOpen}
           onSetModalOpen={this.setModalOpen.bind(this)}
@@ -66,6 +70,11 @@ class App extends Component {
 
   setModalOpen (isModalOpen) {
     this.setState({ isModalOpen })
+  }
+
+  userChangedSkin (skin) {
+    this.setState({ skin })
+    localStorage['skin'] = skin
   }
 
   userChangedEmotion (emotion) {

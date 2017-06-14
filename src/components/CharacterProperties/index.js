@@ -53,7 +53,7 @@ class CharacterProperties extends Component {
 
   render() {
     const { actions, emotions } = this.state
-    const { equippedItems, emotion, action } = this.props
+    const { equippedItems, emotion, action, skin } = this.props
 
     return (
       <div className='character-properties'>
@@ -78,6 +78,20 @@ class CharacterProperties extends Component {
             }
           </select>
         </div>
+        <div className="skin">
+          <span>Skin</span>
+          <select onChange={this.changeSkin.bind(this)} value={skin}>
+            <option value='2000'>pale</option>
+            <option value='2004'>ashen</option>
+            <option value='2010'>pale pink</option>
+            <option value='2001'>tanned</option>
+            <option value='2003'>pale</option>
+            <option value='2005'>green</option>
+            <option value='2013'>ghostly</option>
+            <option value='2002'>dark</option>
+            <option value='2011'>clay</option>
+          </select>
+        </div>
         <div className="disclaimer">
           This is currently a prototype and a <b>work in progress</b>. Please provide feedback or report bugs on our <a href="https://discord.gg/D65Grk9">Discord</a>.
         </div>
@@ -85,8 +99,12 @@ class CharacterProperties extends Component {
     )
   }
 
+  changeSkin(e) {
+    this.props.onChangeSkin(e.target.value)
+  }
+
   changeEmotion(e) {
-    this.props.onChangeEmotion(e.target.value);
+    this.props.onChangeEmotion(e.target.value)
   }
 
   changeAction (e) {
