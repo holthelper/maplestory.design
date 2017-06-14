@@ -21,10 +21,18 @@ class App extends Component {
       emotion: 'default',
       isModalOpen: isOpen
     }
+
+    this.updateBannerAdBlur()
+  }
+
+  updateBannerAdBlur() {
+    const topAd = document.getElementById("top-banner-ad")
+    topAd.className = this.state.isModalOpen ? "modal-blur" : "";
   }
 
   render() {
     const { selectedItems, action, emotion, isModalOpen } = this.state
+    this.updateBannerAdBlur()
 
     return (
       <div className={"App" + (isModalOpen ? ' modal-blur' : '')}>
