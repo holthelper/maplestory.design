@@ -11,5 +11,5 @@ if (isOnDomain && !isOnHttps)
   window.location.protocol = 'https'
 else {
   ReactDOM.render(<App />, document.getElementById('root'));
-  if (!isOnDev) registerServiceWorker();
+  // if (!isOnDev) registerServiceWorker();
 }
