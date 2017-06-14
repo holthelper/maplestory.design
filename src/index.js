@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker, { unregister } from './registerServiceWorker';
 import './index.css';
 
 const isOnDev = window.location.host.indexOf('.dev') !== -1
@@ -12,4 +12,5 @@ if (isOnDomain && !isOnHttps)
 else {
   ReactDOM.render(<App />, document.getElementById('root'));
   // if (!isOnDev) registerServiceWorker();
+  unregister()
 }
