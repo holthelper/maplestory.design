@@ -43,7 +43,7 @@ class IntroModal extends Component {
       '2000/1052923,1052923,1002186,33515,21136'
     ]
 
-    const chosenAvatar = knownAvatars[Math.floor(Math.random() * 2)]
+    const chosenAvatar = knownAvatars[Math.floor(Math.random() * knownAvatars.length)]
 
     return (<img src={`https://labs.maplestory.io/api/character/center/${chosenAvatar}`} />)
   }
