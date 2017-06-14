@@ -49,7 +49,7 @@
 }
 
 .intro-modal .avatar-box img {
-  margin-bottom: calc(-50% + 20px);
+  transform: translateY(50%) translateY(-27px);
 }
 
 .modal-blur {
