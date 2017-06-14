@@ -1,0 +1,25 @@
+.intro-modal-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.intro-modal {
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  min-width: 600px;
+  min-height: 400px;
+}
+
+.modal-blur {
+  filter: blur(5px);
+}

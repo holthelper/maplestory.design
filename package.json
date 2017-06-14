@@ -10,6 +10,7 @@
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-modal": "^1.9.4",
     "react-virtualized": "^9.8.0"
   },
   "scripts": {
