@@ -31,15 +31,21 @@
   font-weight: 200;
   margin-top: 0px;
   line-height: 24px;
-  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding:0px 20px 20px 20px;
+  margin: 0px -20px;
 }
 
 .intro-modal h3 {
   font-weight: 200;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 0px;
-  line-height: 0px;
+  line-height: 24px;
   font-size: 24px;
+}
+
+.intro-modal p {
+  margin-top: 5px;
 }
 
 .intro-modal .avatar-box {

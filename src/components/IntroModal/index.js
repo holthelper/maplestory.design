@@ -26,7 +26,7 @@ class IntroModal extends Component {
         <h3>Latest Updates</h3>
         <p>Visit our <a href="//blog.crr.io">blog</a> for more more information about our latest updates, bug fixes, and other official Crrio news.</p>
         <h3>Disclaimer</h3>
-        <p><span className="avatar-box">{this.getRandomAvatar()}</span>All assets and resources regarding MapleStory thereof are the sole property of <a href="//nexon.net">Nexon</a> and applies to their Terms of Use. By using this service, you agree to respect all copyrights and to not use any assets commercially without permission from Nexon.</p>
+        <p style={{"margin-right":"170px"}}><span className="avatar-box">{this.getRandomAvatar()}</span>All assets and resources regarding MapleStory thereof are the sole property of <a href="//nexon.net">Nexon</a> and applies to their Terms of Use. By using this service, you agree to respect all copyrights and to not use any assets commercially without permission from Nexon.</p>
         <p style={{"margin-right":"170px"}}>We are not an official MapleStory server nor fansite; <i>we provide this service for free in the spirit of free-to-play gaming.</i></p>
       </Modal>
     )
