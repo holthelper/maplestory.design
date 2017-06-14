@@ -4,7 +4,7 @@
   top: 64px;
   bottom: 64px;
   width: 25%;
-  min-width: 450px;
+  min-width: 400px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,7 @@
   display: flex;
   justify-content: space-between;
   color: #3F3F3F;
+  z-index: 2;
 }
 
 .item-listing-header input[type=search] {
@@ -54,6 +55,10 @@
   font-weight: bold;
   background: #488AC7;
   color: white;
+}
+
+.item-listing-categories .active, .item-listing-categories ul .category.active {
+  font-weight: 600;
 }
 
 .item-listing-categories ul ul li {

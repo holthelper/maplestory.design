@@ -1,8 +1,6 @@
 .App {
   overflow: hidden;
   font-family: Muli,sans-serif;
-  position: absolute;
-  top: 90px;
   width: 100%;
   bottom: 0px;
 }

@@ -28,7 +28,8 @@ class ItemListing extends Component {
       selectedCategory: null,
       search: '',
       gutterSize: 6,
-      columnWidth: 32
+      columnWidth: 32,
+      categoryNameSelected: ''
     }
 
     this._cache = cellMeasurerCache
@@ -52,7 +53,7 @@ class ItemListing extends Component {
   }
 
   render() {
-    const { categoryNames, selectedCategory, items } = this.state
+    const { categoryNames, selectedCategory, items, categoryNameSelected } = this.state
     const search = this.state.search.toLowerCase()
 
     this.showIcons = !search ? (selectedCategory || items) : items.filter((item, i) => {
@@ -73,10 +74,16 @@ class ItemListing extends Component {
           <ul>
           {
             _.map(categoryNames, (subCategories, category) => {
-              return (<li key={category} onClick={this.selectPrimaryCategory.bind(this, category)}><span className="category">{category}</span>
+              return (<li key={category} onClick={this.selectPrimaryCategory.bind(this, category)}>
+              <span className={'category' + (category === categoryNameSelected ? ' active' : '')}>{category}</span>
               <ul>
                 {
-                  subCategories.map(subCategory => <li key={subCategory} onClick={this.selectChildCategory.bind(this, category, subCategory)}>{subCategory}</li>)
+                  subCategories.map(subCategory => <li
+                    key={subCategory}
+                    className={subCategory === categoryNameSelected ? 'active' : ''}
+                    onClick={this.selectChildCategory.bind(this, category, subCategory)}>
+                      {subCategory}
+                    </li>)
                 }
               </ul></li>)
             })
@@ -206,21 +213,23 @@ class ItemListing extends Component {
 
   selectPrimaryCategory(primaryCategory, proxy, e) {
     const selectedCategory = _.flatMap(_.values(this.state.categories[primaryCategory], a => a))
-    this.selectCategory(selectedCategory)
+    this.selectCategory(selectedCategory, primaryCategory)
     proxy.preventDefault()
     proxy.stopPropagation()
   }
 
   selectChildCategory(primaryCategory, childCategory, proxy, e) {
     const selectedCategory = this.state.categories[primaryCategory][childCategory]
-    this.selectCategory(selectedCategory)
+    this.selectCategory(selectedCategory, childCategory)
     proxy.preventDefault()
     proxy.stopPropagation()
   }
 
-  selectCategory(selectedCategory) {
+  selectCategory(selectedCategory, categoryNameSelected) {
+    console.log(`Selected category: ${categoryNameSelected}`)
     this.setState({
-      selectedCategory
+      selectedCategory,
+      categoryNameSelected
     })
   }
 
