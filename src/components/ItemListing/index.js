@@ -207,7 +207,7 @@ class ItemListing extends Component {
           height: 32
         }}>
           <img
-            src={`https://labs.maplestory.io/api/item/${item.Id}/icon`}
+            src={`https://maplestory.io/api/item/${item.Id}/icon`}
             onClick={this.selectItem.bind(this, item)}
             alt={item.Name}
             title={item.Name} />
