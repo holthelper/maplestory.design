@@ -93,7 +93,7 @@ class CharacterProperties extends Component {
           </select>
         </div>
         <div className="disclaimer">
-          This is currently a prototype and a <b>work in progress</b>. Please provide feedback or report bugs on our <a href="https://discord.gg/D65Grk9">Discord</a>.
+          <p>This project is actively being developed and considered a <b>prototype</b>.</p>
         </div>
       </div>
     )

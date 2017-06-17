@@ -23,20 +23,16 @@
   color: white;
 }
 
-.facial-expression, .action, .disclaimer {
+.facial-expression, .action, .skin, .disclaimer {
   display: flex;
   flex-direction: column;
-  margin: 0 8px;
+  margin: 0 16px;
 }
 
-.facial-expression, .action {
+/*.facial-expression, .action {
   width: 200px;
-}
-
-.disclaimer {
-  display: inline-block;
 }
 
 .skin {
   width: 100px;
-}
+}*/
