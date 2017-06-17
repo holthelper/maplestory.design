@@ -49,8 +49,8 @@
 }
 
 .item-listing-categories ul .category {
-  border-bottom: 1px solid rgba(0,0,0,0.4);
-  border-top: 1px solid rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(0,0,0,0.2);
   padding: 10px 10px;
   display: block;
   font-weight: bold;
