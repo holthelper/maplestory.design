@@ -58,8 +58,9 @@
   color: white;
 }
 
-.item-listing-categories .active, .item-listing-categories ul .category.active {
+.item-listing-categories .active {
   font-weight: 600;
+  background: whitesmoke;
 }
 
 .item-listing-categories ul ul li {
