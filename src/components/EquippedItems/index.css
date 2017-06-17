@@ -19,6 +19,12 @@
   padding: 0 16px;
   border-bottom: 1px solid rgba(0,0,0,0.2);
   color: #3F3F3F;
+  display: flex;
+  justify-content: space-between;
+}
+
+.equipped-items-header .equipped-items-title {
+  align-self: center;
 }
 
 .equipped-items-item {
@@ -33,6 +39,7 @@
 
 .equipped-items-item img {
   align-self: center;
+  min-width: auto;
   max-width: 32px;
   max-height: 32px;
   overflow: hidden;
