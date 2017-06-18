@@ -83,7 +83,7 @@ class CharacterProperties extends Component {
           <select onChange={this.changeSkin.bind(this)} value={skin}>
             <option value='2000'>Light</option>
             <option value='2004'>Ashen</option>
-            <option value='2010'>Pale pink</option>
+            <option value='2010'>Pale Pink</option>
             <option value='2001'>Tanned</option>
             <option value='2003'>Pale</option>
             <option value='2005'>Green</option>

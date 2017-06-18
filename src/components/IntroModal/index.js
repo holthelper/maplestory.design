@@ -15,7 +15,7 @@ class IntroModal extends Component {
           base: 'intro-modal-overlay',
           afterOpen: 'intro-modal-overlay-opened'
         }}>
-        <img src="/finalicon.svg" className="intro-logo"/><span onClick={this.closeModal.bind(this)} className="btn bg-green text-white right intro-dismiss"><i className="fa fa-check"></i> I agree to the disclaimer.</span>
+        <img src="/finalicon.svg" className="intro-logo"/><span onClick={this.closeModal.bind(this)} className="btn bg-green text-white right intro-dismiss"><i className="fa fa-check"></i> I agree to the disclaimer</span>
         <h1>
           <b>MapleStory:</b> Design
           <br/>
