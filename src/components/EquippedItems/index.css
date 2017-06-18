@@ -5,6 +5,7 @@
   width: 15%;
   background: rgba(255,255,255,0.75);
   min-height: 300px;
+  min-width: 255px;
   max-height: 40vh;
   overflow: auto;
   border: 1px solid rgba(0,0,0,0.2);
@@ -18,6 +19,12 @@
   padding: 0 16px;
   border-bottom: 1px solid rgba(0,0,0,0.2);
   color: #3F3F3F;
+  display: flex;
+  justify-content: space-between;
+}
+
+.equipped-items-header .equipped-items-title {
+  align-self: center;
 }
 
 .equipped-items-item {
@@ -27,11 +34,12 @@
 }
 
 .equipped-items-item:hover {
-  background: whitesmoke !important;
+  background: #F5F5F5 !important;
 }
 
 .equipped-items-item img {
   align-self: center;
+  min-width: auto;
   max-width: 32px;
   max-height: 32px;
   overflow: hidden;

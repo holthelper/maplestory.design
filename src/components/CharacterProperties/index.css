@@ -10,6 +10,7 @@
   color: white;
   font-size: 16px;
   align-items: center;
+  z-index: 2;
 }
 
 .character-properties > span {
@@ -22,20 +23,8 @@
   color: white;
 }
 
-.facial-expression, .action, .disclaimer {
+.facial-expression, .action, .skin, .disclaimer {
   display: flex;
   flex-direction: column;
-  margin: 0 8px;
-}
-
-.facial-expression, .action {
-  width: 200px;
-}
-
-.disclaimer {
-  display: inline-block;
-}
-
-.skin {
-  width: 100px;
+  margin: 0 16px;
 }

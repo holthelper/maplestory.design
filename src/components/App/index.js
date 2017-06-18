@@ -42,6 +42,10 @@ class App extends Component {
             <b>MapleStory:</b> Design<br/>
             <span className="desc"><span className="alpha">Public Alpha</span> A <a href="//crr.io/">Crrio</a> Project</span>
           </span>
+          <ul className="Nav-right">
+            <li><a href="//medium.com/crrio/tagged/maplestory-design" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            <li><a href="https://discord.gg/D65Grk9" target="_blank" rel="noopener noreferrer">Discord</a></li>
+          </ul>
         </div>
         <PlayerCanvas
           selectedItems={_.values(selectedItems).map(item => item.Id)}
@@ -51,7 +55,8 @@ class App extends Component {
         <ItemListing onItemSelected={this.userSelectedItem.bind(this)} />
         <EquippedItems
           equippedItems={selectedItems}
-          onRemoveItem={this.userRemovedItem.bind(this)} />
+          onRemoveItem={this.userRemovedItem.bind(this)}
+          onRemoveItems={this.userRemovedItems.bind(this)} />
         <CharacterProperties
           equippedItems={selectedItems}
           action={action}
@@ -62,8 +67,7 @@ class App extends Component {
           onChangeSkin={this.userChangedSkin.bind(this)} />
         <IntroModal
           isOpen={isModalOpen}
-          onSetModalOpen={this.setModalOpen.bind(this)}
-          />
+          onSetModalOpen={this.setModalOpen.bind(this)} />
       </div>
     )
   }
@@ -101,6 +105,11 @@ class App extends Component {
       ...this.state.selectedItems,
     }
     delete selectedItems[item.TypeInfo.SubCategory]
+    this.updateItems(selectedItems);
+  }
+
+  userRemovedItems () {
+    let selectedItems = {}
     this.updateItems(selectedItems);
   }
 
