@@ -144,7 +144,9 @@ class ItemListing extends Component {
                 left: similarItems.x - 5,
                 top: similarItems.y - 5,
                 width: (similarItems.item.similar.length * 36)
-              }} onMouseLeave={this.mouseOutSimilar.bind(this)}>
+              }} onMouseLeave={this.mouseOutSimilar.bind(this)}
+                onWheel={this.onSimilarScroll.bind(this)}
+                >
                 { similarItems.item.similar.map((item) => this.containedItemIcon(item, true)) }
               </div>
             }
@@ -153,6 +155,12 @@ class ItemListing extends Component {
         </div>
       </div>
     )
+  }
+
+  onSimilarScroll(e) {
+    var masonry = document.getElementsByClassName("ReactVirtualized__Masonry")[0]
+    masonry.scrollTop += e.deltaY
+    this.mouseOutSimilar()
   }
 
   mouseOutSimilar() {
@@ -274,7 +282,9 @@ class ItemListing extends Component {
 
   containedItemIcon(item, hideSimilar) {
     return (
-      <div>
+      <div
+        onWheel={!hideSimilar ? this.onSimilarScroll.bind(this) : false}
+        >
         { this.itemIcon(item, hideSimilar) }
       </div>
     )
@@ -294,7 +304,6 @@ class ItemListing extends Component {
   showSimilar(item) {
     const iconImg = document.getElementById(item.Id).parentElement
     const masonryContainer = document.getElementsByClassName("ReactVirtualized__Masonry")[0]
-    console.log(iconImg, item)
     this.setState({
       similarItems: {
         item,
