@@ -56,6 +56,7 @@ class App extends Component {
         <EquippedItems
           equippedItems={selectedItems}
           skinId={skin}
+          onRemoveItem={this.userRemovedItem.bind(this)}
           onRemoveItems={this.userRemovedItems.bind(this)} />
         <CharacterProperties
           equippedItems={selectedItems}
