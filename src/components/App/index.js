@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    let isOpen = (localStorage || {})['hideModal']
+    let isOpen = (localStorage || {})['hideModal'] !== 'true'
     if (isOpen === '' || isOpen === undefined || isOpen === 'undefined')
       isOpen = true
 
@@ -40,8 +40,12 @@ class App extends Component {
         <div className="App-header">
           <span className="logo">
             <b>MapleStory:</b> Design<br/>
-            <span className="desc"><span className="alpha">Public Alpha</span> A <a href="//crr.io/">Crrio</a> Project</span>
+            <span className="desc"><span className="alpha">Public Alpha</span> </span>
           </span>
+          <ul className="Nav-right">
+            <li><a href="//medium.com/crrio/tagged/maplestory-design" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            <li><a href="https://discord.gg/D65Grk9" target="_blank" rel="noopener noreferrer">Discord</a></li>
+          </ul>
         </div>
         <PlayerCanvas
           selectedItems={_.values(selectedItems).map(item => item.Id)}
@@ -51,7 +55,9 @@ class App extends Component {
         <ItemListing onItemSelected={this.userSelectedItem.bind(this)} />
         <EquippedItems
           equippedItems={selectedItems}
-          onRemoveItem={this.userRemovedItem.bind(this)} />
+          skinId={skin}
+          onRemoveItem={this.userRemovedItem.bind(this)}
+          onRemoveItems={this.userRemovedItems.bind(this)} />
         <CharacterProperties
           equippedItems={selectedItems}
           action={action}
@@ -62,8 +68,7 @@ class App extends Component {
           onChangeSkin={this.userChangedSkin.bind(this)} />
         <IntroModal
           isOpen={isModalOpen}
-          onSetModalOpen={this.setModalOpen.bind(this)}
-          />
+          onSetModalOpen={this.setModalOpen.bind(this)} />
       </div>
     )
   }
@@ -92,6 +97,16 @@ class App extends Component {
       ...this.state.selectedItems,
     }
 
+    if (item.TypeInfo.SubCategory === 'Overall') {
+      delete selectedItems['Top']
+      delete selectedItems['Bottom']
+    }
+
+    if (item.similar) {
+      item = { ...item }
+      delete item['similar']
+    }
+
     selectedItems[item.TypeInfo.SubCategory] = item
     this.updateItems(selectedItems)
   }
@@ -101,6 +116,11 @@ class App extends Component {
       ...this.state.selectedItems,
     }
     delete selectedItems[item.TypeInfo.SubCategory]
+    this.updateItems(selectedItems);
+  }
+
+  userRemovedItems () {
+    let selectedItems = {}
     this.updateItems(selectedItems);
   }
 

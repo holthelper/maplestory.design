@@ -15,11 +15,11 @@ class IntroModal extends Component {
           base: 'intro-modal-overlay',
           afterOpen: 'intro-modal-overlay-opened'
         }}>
+        <img src="/finalicon.svg" className="intro-logo"/><span onClick={this.closeModal.bind(this)} className="btn bg-green text-white right intro-dismiss"><i className="fa fa-check"></i> I understand</span>
         <h1>
           <b>MapleStory:</b> Design
-          <span onClick={this.closeModal.bind(this)} className="right"><i className="fa fa-times"></i></span>
           <br/>
-          <span className="modal-desc">The unofficial MapleStory simulator and designer.</span>
+          <span className="modal-desc">The <b>unofficial</b> MapleStory simulator and designer.</span>
         </h1>
         <h3>Have feedback or want to report a bug?</h3>
         <p>Let us know on our <a href="https://discord.gg/D65Grk9">Discord</a> or by email at support@crr.io.</p>

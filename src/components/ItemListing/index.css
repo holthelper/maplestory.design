@@ -5,7 +5,7 @@
   bottom: 64px;
   width: 25%;
   min-width: 400px;
-  background: white;
+  background: #FFF;
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(0,0,0,0.2);
@@ -25,7 +25,6 @@
 }
 
 .item-listing-header input[type=search] {
-  font-size: 16px;
   align-self: center;
 }
 
@@ -49,8 +48,8 @@
 }
 
 .item-listing-categories ul .category {
-  border-bottom: 1px solid rgba(0,0,0,0.4);
-  border-top: 1px solid rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(0,0,0,0.2);
   padding: 10px 10px;
   display: block;
   font-weight: bold;
@@ -58,8 +57,9 @@
   color: white;
 }
 
-.item-listing-categories .active, .item-listing-categories ul .category.active {
+.item-listing-categories .active {
   font-weight: 600;
+  background: #F5F5F5;
 }
 
 .item-listing-categories ul ul li {
@@ -74,8 +74,25 @@
 .item-listing-icons {
   flex: 1;
   max-height: 100%;
-  overflow: auto;
+  overflow: visible;
   padding: 6px 0 0 6px;
+}
+
+.similar-items {
+  position: absolute;
+  z-index: 3;
+  padding: 4px;
+  background: #eee;
+  padding: 5px;
+  box-shadow: 0 0 1px #999;
+  border-radius: 5px;
+}
+
+.similar-items div {
+  display: inline-flex;
+  width: 32px;
+  margin: 0 2px;
+  justify-content: center;
 }
 
 .item-img-container {
@@ -89,8 +106,50 @@
   overflow: hidden;
 }
 
-.item-img-container img {
+.item-img-container img, .similar-items img {
   max-width: 32px;
   max-height: 32px;
   overflow: hidden;
+}
+
+.item-search {
+  border: 0px;
+  font-size: 18px;
+  line-height: 36px;
+  min-height: 36px;
+  padding: 0 16px;
+  display: flex;
+  color: #3F3F3F;
+  font-family: Muli,sans-serif;
+  width: 100%;
+}
+
+.filters {
+  font-size: 14px;
+  line-height: 36px;
+  min-height: 36px;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  color: #3F3F3F;
+  font-family: Muli,sans-serif;
+}
+
+.filters label {
+  color: #3F3F3F;
+  font-family: Muli,sans-serif;
+  font-weight: 700;
+}
+
+.gender-select {
+  border: 0px;
+  font-size: 14px;
+  line-height: 36px;
+  min-height: 36px;
+  padding: 0 16px;
+  display: flex;
+  color: #3F3F3F;
+  font-family: Muli,sans-serif;
+  font-weight: 700;
 }

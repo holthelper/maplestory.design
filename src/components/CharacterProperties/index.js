@@ -81,19 +81,19 @@ class CharacterProperties extends Component {
         <div className="skin">
           <span>Skin</span>
           <select onChange={this.changeSkin.bind(this)} value={skin}>
-            <option value='2000'>pale</option>
-            <option value='2004'>ashen</option>
-            <option value='2010'>pale pink</option>
-            <option value='2001'>tanned</option>
-            <option value='2003'>pale</option>
-            <option value='2005'>green</option>
-            <option value='2013'>ghostly</option>
-            <option value='2002'>dark</option>
-            <option value='2011'>clay</option>
+            <option value='2000'>Light</option>
+            <option value='2004'>Ashen</option>
+            <option value='2010'>Pale Pink</option>
+            <option value='2001'>Tanned</option>
+            <option value='2003'>Pale</option>
+            <option value='2005'>Green</option>
+            <option value='2013'>Ghostly</option>
+            <option value='2002'>Dark</option>
+            <option value='2011'>Clay</option>
           </select>
         </div>
         <div className="disclaimer">
-          This is currently a prototype and a <b>work in progress</b>. Please provide feedback or report bugs on our <a href="https://discord.gg/D65Grk9">Discord</a>.
+          <p>This project is actively being developed and considered a <b>prototype</b>.</p>
         </div>
       </div>
     )
