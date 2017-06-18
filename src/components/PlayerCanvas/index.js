@@ -5,7 +5,9 @@ class PlayerCanvas extends Component {
   render() {
     const { selectedItems, action, emotion, skin } = this.props
 
-    const itemsWithEmotion = selectedItems.map(itemId => itemId >= 20000 && itemId <= 29999 ? `${itemId}:${emotion}` : itemId)
+    const itemsWithEmotion = selectedItems
+      .filter(itemId => itemId)
+      .map(itemId => itemId >= 20000 && itemId <= 29999 ? `${itemId}:${emotion}` : itemId)
 
     return (
       <div className="canvas">

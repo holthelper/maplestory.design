@@ -4,7 +4,7 @@ import _ from 'lodash'
 
 class EquippedItems extends Component {
   render() {
-    const { equippedItems } = this.props
+    const { equippedItems, skinId } = this.props
     return (
       <div className='equipped-items'>
         <div className='equipped-items-header'>
@@ -23,6 +23,9 @@ class EquippedItems extends Component {
               </div>
             ))
           }
+        </div>
+        <div className='download-bar'>
+          <a href={`https://labs.maplestory.io/api/character/download/${skinId}/${_.map(equippedItems, i => i.Id).join(',')}`} target='_blank'>Download Spritesheet</a>
         </div>
       </div>
     )
