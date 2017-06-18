@@ -240,7 +240,8 @@ class ItemListing extends Component {
     console.log(`Selected category: ${categoryNameSelected}`)
     this.setState({
       selectedCategory,
-      categoryNameSelected
+      categoryNameSelected,
+      search: ''
     })
   }
 

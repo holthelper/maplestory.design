@@ -51,6 +51,7 @@ class App extends Component {
         <ItemListing onItemSelected={this.userSelectedItem.bind(this)} />
         <EquippedItems
           equippedItems={selectedItems}
+          skinId={skin}
           onRemoveItem={this.userRemovedItem.bind(this)} />
         <CharacterProperties
           equippedItems={selectedItems}
@@ -90,6 +91,11 @@ class App extends Component {
   userSelectedItem (item) {
     let selectedItems = {
       ...this.state.selectedItems,
+    }
+
+    if (item.TypeInfo.SubCategory == 'Overall') {
+      delete selectedItems['Top']
+      delete selectedItems['Bottom']
     }
 
     selectedItems[item.TypeInfo.SubCategory] = item
