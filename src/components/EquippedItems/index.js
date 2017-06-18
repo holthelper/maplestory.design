@@ -8,7 +8,7 @@ class EquippedItems extends Component {
     return (
       <div className='equipped-items'>
         <div className='equipped-items-header'>
-          Quick View
+          <span className="equipped-items-title">Quick View</span> <span onClick={this.removeItems.bind(this)} className="btn bg-red text-white right">Remove All</span>
         </div>
         <div className='equipped-items-listing'>
           {
@@ -19,7 +19,7 @@ class EquippedItems extends Component {
                   <div className='equipped-items-item-meta-name'>{item.Name}</div>
                   <div className='equipped-items-item-meta-category'>{item.TypeInfo.SubCategory}</div>
                 </div>
-                <span onClick={this.removeItem.bind(this, item)}><i className="fa fa-times"></i></span>
+                <span onClick={this.removeItem.bind(this, item)} className="btn bg-red text-white right"><i className="fa fa-times"></i></span>
               </div>
             ))
           }
@@ -33,6 +33,10 @@ class EquippedItems extends Component {
 
   removeItem(item) {
     this.props.onRemoveItem(item);
+  }
+
+  removeItems() {
+    this.props.onRemoveItems();
   }
 }
 

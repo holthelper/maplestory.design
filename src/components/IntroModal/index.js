@@ -17,7 +17,7 @@ class IntroModal extends Component {
         }}>
         <h1>
           <b>MapleStory:</b> Design
-          <span onClick={this.closeModal.bind(this)} className="right"><i className="fa fa-times"></i></span>
+          <span onClick={this.closeModal.bind(this)} className="btn bg-red text-white right"><i className="fa fa-times"></i></span>
           <br/>
           <span className="modal-desc">The unofficial MapleStory simulator and designer.</span>
         </h1>

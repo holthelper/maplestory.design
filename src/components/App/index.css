@@ -15,13 +15,14 @@
   background-size: contain;
   height: 64px;
   font-size: 24px;
-  padding-top: 2px;
   color: white;
+  display: flex;
+  justify-content: space-between;
 }
 
 .App-header .logo {
     padding: 5px 20px 0px 70px;
-    display: block;
+    display: inline-block;
 }
 
 .App-header .logo a {
@@ -43,6 +44,32 @@
   display: block;
 }
 
+.App-header .Nav-right {
+  align-self: center;
+  padding: 0px 10px 0px 70px;
+  display: inline-flex;
+  list-style: none;
+}
+
+.App-header .Nav-right li a {
+  padding: 19px 12px;
+  display: inline-block;
+  float: left;
+  font-size: 20px;
+  float: left;
+}
+
+.App-header .Nav-right li a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.App-header .Nav-right li:hover {
+  color: #FFF;
+  text-decoration: none;
+  background: rgba(255,255,255,0.1);
+}
+
 .App-intro {
   font-size: large;
 }
@@ -62,4 +89,29 @@
 
 a {
   color: #488AC7;
+}
+
+.btn {
+  padding: 3px 8px;
+  transition: all .1s ease;
+  box-shadow: inset 0 1px 0 rgba(248,249,250,.0125), 0 1px 1px rgba(33,37,41,.05);
+  border-color: rgba(0,0,0,0.1);
+  border-style: solid;
+  border-width: 1px 1px 3px 1px;
+  font-size: 14px;
+  display: inline-block;
+  line-height: initial;
+  align-self: center;
+}
+
+.btn:hover {
+  border-width: 1px 1px 1px 1px;
+}
+
+.bg-red {
+  background-color: #fa5252;
+}
+
+.text-white {
+  color: #FFF;
 }
