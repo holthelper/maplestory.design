@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    let isOpen = (localStorage || {})['hideModal'] === 'true'
+    let isOpen = (localStorage || {})['hideModal'] !== 'true'
     if (isOpen === '' || isOpen === undefined || isOpen === 'undefined')
       isOpen = true
 
