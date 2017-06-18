@@ -40,7 +40,9 @@ class ItemListing extends Component {
       search: '',
       gutterSize: 6,
       columnWidth: 32,
-      categoryNameSelected: ''
+      categoryNameSelected: '',
+      selectedGender: '',
+      cashItemsOnly: false
     }
 
     this._cache = cellMeasurerCache
@@ -64,14 +66,21 @@ class ItemListing extends Component {
   }
 
   render() {
-    const { categoryNames, selectedCategory, items, categoryNameSelected } = this.state
+    const { categoryNames, selectedCategory, items, categoryNameSelected, cashItemsOnly, selectedGender } = this.state
     const search = this.state.search.toLowerCase()
 
+    if (search) console.log(`Searching for ${search}`)
     this.showIcons = !search ? (selectedCategory || items) : items.filter((item, i) => {
       return (item.Name || '').toLowerCase().indexOf(search) !== -1 ||
         item.Id.toString().toLowerCase().indexOf(search) !== -1 ||
         (item.desc || '').toLowerCase().indexOf(search) !== -1
     })
+
+    if (cashItemsOnly)
+      this.showIcons = this.showIcons.filter(item => item.IsCash)
+
+    if (selectedGender)
+      this.showIcons = this.showIcons.filter(c => c.RequiredGender == selectedGender);
 
     this.showIcons = this.showIcons.filter(item => item && item.Id)
 
@@ -79,6 +88,18 @@ class ItemListing extends Component {
       <div className='item-listing'>
         <div className='item-listing-header'>
           Gallery <input type="search" value={search} onChange={this.search.bind(this)} placeholder="Search.."/>
+        </div>
+        <div className='item-listing-header'>
+          <label>
+            <input type="checkbox" onChange={this.toggleCashItems.bind(this)} checked={this.cashItemsOnly} />
+            Cash Only
+          </label>
+          <select onChange={this.changeGender.bind(this)} value={this.selectedGender}>
+            <option value="">Gender Filter</option>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+            <option value="2">Universal</option>
+          </select>
         </div>
         <div className='item-listing-content'>
           <div className='item-listing-categories'>
@@ -107,6 +128,14 @@ class ItemListing extends Component {
         </div>
       </div>
     )
+  }
+
+  toggleCashItems (e) {
+    this.setState({ cashItemsOnly: e.target.checked })
+  }
+
+  changeGender (e) {
+    this.setState({ selectedGender: e.target.value })
   }
 
   _renderAutoSizer ({ height }) {
