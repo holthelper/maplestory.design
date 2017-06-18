@@ -39,11 +39,12 @@ class App extends Component {
       <div className={"App" + (isModalOpen ? ' modal-blur' : '')}>
         <div className="App-header">
           <span className="logo">
-            <b>MapleStory:</b> Design <span className="alpha">Public Alpha</span> <br/>
-            <span className="desc">A <a href="//crr.io/">Crrio</a> Project</span>
+            <b>MapleStory:</b> Design<br/>
+            <span className="desc"><span className="alpha">Public Alpha</span> A <a href="//crr.io/">Crrio</a> Project</span>
           </span>
           <ul className="Nav-right">
-            <li><a href="//medium.com/crrio/tagged/maplestory-design" target="_blank" rel="noopener noreferrer">Official Blog</a></li>
+            <li><a href="//medium.com/crrio/tagged/maplestory-design" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            <li><a href="https://discord.gg/D65Grk9" target="_blank" rel="noopener noreferrer">Discord</a></li>
           </ul>
         </div>
         <PlayerCanvas

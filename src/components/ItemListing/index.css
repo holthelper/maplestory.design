@@ -5,7 +5,7 @@
   bottom: 64px;
   width: 25%;
   min-width: 400px;
-  background: white;
+  background: #FFF;
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(0,0,0,0.2);
@@ -60,7 +60,7 @@
 
 .item-listing-categories .active {
   font-weight: 600;
-  background: whitesmoke;
+  background: #F5F5F5;
 }
 
 .item-listing-categories ul ul li {
