@@ -61,7 +61,7 @@ class ItemListing extends Component {
                     item => Math.floor(item.Id / 10)
                   ), itemGrouping => {
                     const firstItem = itemGrouping[0]
-                    firstItem.similar = itemGrouping.slice(1)
+                    firstItem.similar = itemGrouping
                     return firstItem
                   }
                 )
@@ -145,7 +145,7 @@ class ItemListing extends Component {
                 top: similarItems.y - 5,
                 width: (similarItems.item.similar.length * 36)
               }} onMouseLeave={this.mouseOutSimilar.bind(this)}>
-                { similarItems.item.similar.map(this.itemIcon.bind(this)) }
+                { similarItems.item.similar.map((item) => this.containedItemIcon(item, true)) }
               </div>
             }
             { this._renderAutoSizer({ height: 32 }) }
@@ -272,7 +272,15 @@ class ItemListing extends Component {
     )
   }
 
-  itemIcon(item) {
+  containedItemIcon(item, hideSimilar) {
+    return (
+      <div>
+        { this.itemIcon(item, hideSimilar) }
+      </div>
+    )
+  }
+
+  itemIcon(item, hideSimilar) {
     return (<img
       src={`https://labs.maplestory.io/api/item/${item.Id}/icon`}
       onClick={this.selectItem.bind(this, item)}
@@ -280,7 +288,7 @@ class ItemListing extends Component {
       title={item.Name}
       id={item.Id}
       key={item.Id}
-      onMouseOver={item.similar ? this.showSimilar.bind(this, item) : false} />)
+      onMouseOver={!hideSimilar && item.similar ? this.showSimilar.bind(this, item) : false} />)
   }
 
   showSimilar(item) {
@@ -290,7 +298,7 @@ class ItemListing extends Component {
     this.setState({
       similarItems: {
         item,
-        x: iconImg.offsetLeft + masonryContainer.offsetLeft + 38,
+        x: iconImg.offsetLeft + masonryContainer.offsetLeft,
         y: iconImg.offsetTop + masonryContainer.offsetTop - iconImg.parentElement.parentElement.scrollTop
       }
     })

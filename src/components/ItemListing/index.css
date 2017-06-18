@@ -86,6 +86,19 @@
   padding: 5px;
   box-shadow: 0 0 1px #999;
   border-radius: 5px;
+  height: 32px;
+}
+
+.similar-items div {
+  display: inline-flex;
+  max-width: 32px;
+  max-height: 32px;
+  width: 32px;
+  height: 32px;
+  margin: 0 2px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .item-img-container {
@@ -103,7 +116,6 @@
   max-width: 32px;
   max-height: 32px;
   overflow: hidden;
-  margin: 0 2px;
 }
 
 .item-search {
@@ -115,6 +127,7 @@
   display: flex;
   color: #3F3F3F;
   font-family: Muli,sans-serif;
+  width: 100%;
 }
 
 .filters {
