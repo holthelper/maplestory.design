@@ -102,6 +102,11 @@ class App extends Component {
       delete selectedItems['Bottom']
     }
 
+    if (item.similar) {
+      item = { ...item }
+      delete item['similar']
+    }
+
     selectedItems[item.TypeInfo.SubCategory] = item
     this.updateItems(selectedItems)
   }

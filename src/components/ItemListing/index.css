@@ -86,19 +86,13 @@
   padding: 5px;
   box-shadow: 0 0 1px #999;
   border-radius: 5px;
-  height: 32px;
 }
 
 .similar-items div {
   display: inline-flex;
-  max-width: 32px;
-  max-height: 32px;
   width: 32px;
-  height: 32px;
   margin: 0 2px;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
 }
 
 .item-img-container {
