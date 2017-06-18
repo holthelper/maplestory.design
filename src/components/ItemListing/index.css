@@ -75,8 +75,18 @@
 .item-listing-icons {
   flex: 1;
   max-height: 100%;
-  overflow: auto;
+  overflow: visible;
   padding: 6px 0 0 6px;
+}
+
+.similar-items {
+  position: absolute;
+  z-index: 3;
+  padding: 4px;
+  background: #eee;
+  padding: 5px;
+  box-shadow: 0 0 1px #999;
+  border-radius: 5px;
 }
 
 .item-img-container {
@@ -90,8 +100,9 @@
   overflow: hidden;
 }
 
-.item-img-container img {
+.item-img-container img, .similar-items img {
   max-width: 32px;
   max-height: 32px;
   overflow: hidden;
+  margin: 0 2px;
 }

@@ -42,7 +42,8 @@ class ItemListing extends Component {
       columnWidth: 32,
       categoryNameSelected: '',
       selectedGender: '',
-      cashItemsOnly: false
+      cashItemsOnly: false,
+      similarItems: null
     }
 
     this._cache = cellMeasurerCache
@@ -50,7 +51,22 @@ class ItemListing extends Component {
     itemListPromise.then(response => {
       if(response.status === 200) {
         const categories = _.mapValues(
-          _.groupBy(response.data, item => item.TypeInfo.Category),
+          _.groupBy(
+            response.data
+              .filter(item => item.Id < 30000 || item.Id > 50000)
+              .concat(
+                _.map(
+                  _.groupBy(
+                    response.data.filter(item => item.Id >= 30000 && item.Id <= 50000),
+                    item => Math.floor(item.Id / 10)
+                  ), itemGrouping => {
+                    const firstItem = itemGrouping[0]
+                    firstItem.similar = itemGrouping.slice(1)
+                    return firstItem
+                  }
+                )
+              ),
+            item => item.TypeInfo.Category),
           items => _.groupBy(items, item => item.TypeInfo.SubCategory)
         );
 
@@ -66,7 +82,7 @@ class ItemListing extends Component {
   }
 
   render() {
-    const { categoryNames, selectedCategory, items, categoryNameSelected, cashItemsOnly, selectedGender } = this.state
+    const { categoryNames, selectedCategory, items, categoryNameSelected, cashItemsOnly, selectedGender, similarItems } = this.state
     const search = this.state.search.toLowerCase()
 
     if (search) console.log(`Searching for ${search}`)
@@ -123,11 +139,24 @@ class ItemListing extends Component {
           </ul>
           </div>
           <div className='item-listing-icons'>
+            { similarItems &&
+              <div className='similar-items' style={{
+                left: similarItems.x - 5,
+                top: similarItems.y - 5,
+                width: (similarItems.item.similar.length * 36)
+              }} onMouseLeave={this.mouseOutSimilar.bind(this)}>
+                { similarItems.item.similar.map(this.itemIcon.bind(this)) }
+              </div>
+            }
             { this._renderAutoSizer({ height: 32 }) }
           </div>
         </div>
       </div>
     )
+  }
+
+  mouseOutSimilar() {
+    this.setState({ similarItems: null })
   }
 
   toggleCashItems (e) {
@@ -221,6 +250,7 @@ class ItemListing extends Component {
 
   cellRenderer ({ index, key, parent, style }) {
     const item = this.showIcons[index]
+    const { showSimilarTo } = this.state
 
     if (!item) return
 
@@ -233,16 +263,37 @@ class ItemListing extends Component {
       >
         <div className="item-img-container" style={{
           ...style,
+          width: 32,
           height: 32
         }}>
-          <img
-            src={`https://labs.maplestory.io/api/item/${item.Id}/icon`}
-            onClick={this.selectItem.bind(this, item)}
-            alt={item.Name}
-            title={item.Name} />
+          { this.itemIcon(item) }
         </div>
       </CellMeasurer>
     )
+  }
+
+  itemIcon(item) {
+    return (<img
+      src={`https://labs.maplestory.io/api/item/${item.Id}/icon`}
+      onClick={this.selectItem.bind(this, item)}
+      alt={item.Name}
+      title={item.Name}
+      id={item.Id}
+      key={item.Id}
+      onMouseOver={item.similar ? this.showSimilar.bind(this, item) : false} />)
+  }
+
+  showSimilar(item) {
+    const iconImg = document.getElementById(item.Id).parentElement
+    const masonryContainer = document.getElementsByClassName("ReactVirtualized__Masonry")[0]
+    console.log(iconImg, item)
+    this.setState({
+      similarItems: {
+        item,
+        x: iconImg.offsetLeft + masonryContainer.offsetLeft + 38,
+        y: iconImg.offsetTop + masonryContainer.offsetTop - iconImg.parentElement.parentElement.scrollTop
+      }
+    })
   }
 
   search(e) {
