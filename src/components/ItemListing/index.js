@@ -266,7 +266,7 @@ class ItemListing extends Component {
           width: 32,
           height: 32
         }}>
-          { this.itemIcon(item) }
+          { this.itemIcon(item, this.state.search) }
         </div>
       </CellMeasurer>
     )
