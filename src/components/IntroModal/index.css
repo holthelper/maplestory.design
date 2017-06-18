@@ -12,11 +12,12 @@
 
 .intro-modal {
   border: 1px solid rgb(204, 204, 204);
-  background: rgb(255, 255, 255);
-  overflow: auto;
+  background: #FFF;
+  background-size: cover;
+  overflow: visible;
   border-radius: 4px;
   outline: none;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   max-width: 640px;
   min-height: 400px;
   font-family: "Muli", sans-serif;
@@ -33,8 +34,10 @@
   margin-top: 0px;
   line-height: 24px;
   border-bottom: 1px solid rgba(0,0,0,0.2);
-  padding:0px 20px 20px 20px;
+  padding:20px 20px 20px 200px;
   margin: 0px -20px;
+  background: #F5F5F5;
+  text-align: right;
 }
 
 .intro-modal h3 {
@@ -62,4 +65,17 @@
 
 .modal-blur {
   filter: blur(13px);
+}
+
+.intro-logo {
+    position: absolute;
+    top: -225px;
+    width: 500px;
+    left: -230px;
+}
+
+.intro-dismiss {
+    position: absolute;
+    right: 0;
+    top: -40px;
 }

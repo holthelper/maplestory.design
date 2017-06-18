@@ -11,7 +11,7 @@
 }
 
 .App-header {
-  background: #488AC7 url('crrioseaship.png') left no-repeat;
+  background: #488AC7 url('/finalicon.svg') left no-repeat;
   background-size: contain;
   height: 64px;
   font-size: 24px;
@@ -21,7 +21,7 @@
 }
 
 .App-header .logo {
-    padding: 5px 20px 0px 70px;
+    padding: 5px 20px 0px 90px;
     display: inline-block;
 }
 
@@ -115,6 +115,10 @@ a {
 
 .bg-blue {
   background-color: #42a5f5;
+}
+
+.bg-green {
+  background-color: #9ccc65;
 }
 
 .text-white {
