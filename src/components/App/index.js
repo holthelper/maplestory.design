@@ -97,7 +97,7 @@ class App extends Component {
       ...this.state.selectedItems,
     }
 
-    if (item.TypeInfo.SubCategory == 'Overall') {
+    if (item.TypeInfo.SubCategory === 'Overall') {
       delete selectedItems['Top']
       delete selectedItems['Bottom']
     }

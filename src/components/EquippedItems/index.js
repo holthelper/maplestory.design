@@ -23,9 +23,14 @@ class EquippedItems extends Component {
               </div>
             ))
           }
-        </div>
-        <div className='download-bar'>
-          <a href={`https://labs.maplestory.io/api/character/download/${skinId}/${_.map(equippedItems, i => i.Id).join(',')}`} target='_blank'>Download Spritesheet</a>
+          <a href={`https://labs.maplestory.io/api/character/download/${skinId}/${_.map(equippedItems, i => i.Id).join(',')}`} target='_blank'  rel="noopener noreferrer">
+            <div className='download-bar bg-blue'>
+              <div className='equipped-items-item-meta'>
+                <div className='equipped-items-item-meta-name text-white'>Download Spritesheet</div>
+                <div className='equipped-items-item-meta-category text-white'>(will download a <b>.zip</b>)</div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     )
