@@ -103,14 +103,14 @@ class ItemListing extends Component {
     return (
       <div className='item-listing'>
         <div className='item-listing-header'>
-          Gallery <input type="search" value={search} onChange={this.search.bind(this)} placeholder="Search.."/>
+          <input type="search" value={search} onChange={this.search.bind(this)} placeholder="Search.." className="item-search"/>
         </div>
-        <div className='item-listing-header'>
+        <div className='filters'>
           <label>
             <input type="checkbox" onChange={this.toggleCashItems.bind(this)} checked={this.cashItemsOnly} />
             Cash Only
           </label>
-          <select onChange={this.changeGender.bind(this)} value={this.selectedGender}>
+          <select onChange={this.changeGender.bind(this)} value={this.selectedGender} className="gender-select">
             <option value="">Gender Filter</option>
             <option value="0">Male</option>
             <option value="1">Female</option>
