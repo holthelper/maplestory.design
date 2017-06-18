@@ -40,7 +40,7 @@ class App extends Component {
         <div className="App-header">
           <span className="logo">
             <b>MapleStory:</b> Design<br/>
-            <span className="desc"><span className="alpha">Public Alpha</span> A <a href="//crr.io/">Crrio</a> Project</span>
+            <span className="desc"><span className="alpha">Public Alpha</span> </span>
           </span>
           <ul className="Nav-right">
             <li><a href="//medium.com/crrio/tagged/maplestory-design" target="_blank" rel="noopener noreferrer">Blog</a></li>
