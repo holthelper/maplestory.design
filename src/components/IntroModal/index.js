@@ -21,10 +21,10 @@ class IntroModal extends Component {
           <br/>
           <span className="modal-desc">The <b>unofficial</b> MapleStory simulator and designer.</span>
         </h1>
+        <h3>Latest Updates</h3>
+        <p>Visit our <a href="http://blog.crr.io">blog</a> for more information about our latest updates, new features, and bug fixes on MapleStory: Design.</p>
         <h3>Have feedback or want to report a bug?</h3>
         <p>Let us know on our <a href="https://discord.gg/D65Grk9">Discord</a> or by email at support@crr.io.</p>
-        <h3>Latest Updates</h3>
-        <p>Visit our <a href="//blog.crr.io">blog</a> for more more information about our latest updates, bug fixes, and other official Crrio news.</p>
         <h3>Disclaimer</h3>
         <p style={{"margin-right":"170px"}}><span className="avatar-box">{this.getRandomAvatar()}</span>All assets and resources regarding MapleStory thereof are the sole property of <a href="//nexon.net">Nexon</a> and applies to their Terms of Use. By using this service, you agree to respect all copyrights and to not use any assets commercially without permission from Nexon.</p>
         <p style={{"margin-right":"170px"}}>We are not an official MapleStory server nor fansite; <i>we provide this service for free in the spirit of free-to-play gaming.</i></p>
