@@ -49,17 +49,19 @@
 
 .intro-modal p {
   margin-top: 5px;
+  margin-right:75px;
 }
 
 .intro-modal .avatar-box {
   position: absolute;
   bottom: 0;
   right: 25px;
-  overflow: hidden;
 }
 
 .intro-modal .avatar-box img {
-  transform: translateY(50%) translateY(-29px);
+transform: translateZ(0) translateY(50%) translateY(-31px) translateX(-20px);
+image-rendering: pixelated;
+width: calc(200%);
 }
 
 .modal-blur {
