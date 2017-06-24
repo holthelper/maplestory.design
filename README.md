@@ -1,4 +1,5 @@
 <p align="center">
+  <img src="https://maplestory.design/finalicon.svg" width="300px" alt="MapleStory: Design logo"/>
 </p>
 
 **MapleStory: Design** is an un-official web simulator designed to allow players of the MMORPG MapleStory to design characters and scenarios.
