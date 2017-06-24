@@ -59,9 +59,9 @@
 }
 
 .intro-modal .avatar-box img {
-transform: translateZ(0) translateY(50%) translateY(-31px) translateX(-20px);
-image-rendering: pixelated;
-width: calc(200%);
+  transform: translateZ(0) translateY(50%) translateY(-31px) translateX(-20px);
+  image-rendering: pixelated;
+  width: calc(200%);
 }
 
 .modal-blur {
