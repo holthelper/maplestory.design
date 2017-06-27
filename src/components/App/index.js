@@ -6,6 +6,7 @@ import EquippedItems from '../EquippedItems'
 import CharacterProperties from '../CharacterProperties'
 import _ from 'lodash'
 import IntroModal from '../IntroModal'
+import Localize from '../../Const/Localize'
 
 class App extends Component {
   constructor(props) {
@@ -39,8 +40,8 @@ class App extends Component {
       <div className={"App" + (isModalOpen ? ' modal-blur' : '')}>
         <div className="App-header">
           <span className="logo">
-            <b>MapleStory:</b> Design<br/>
-            <span className="desc"><span className="alpha">Public Alpha</span> </span>
+            <b>{Localize['en'].maplestory}:</b> {Localize['en'].design}<br/>
+            <span className="desc"><span className="alpha">{Localize['en'].alpha}</span> </span>
           </span>
           <ul className="Nav-right">
             <li><a href="//medium.com/crrio/tagged/maplestory-design" target="_blank" rel="noopener noreferrer">Blog</a></li>

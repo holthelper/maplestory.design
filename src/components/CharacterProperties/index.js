@@ -57,7 +57,7 @@ class CharacterProperties extends Component {
 
     return (
       <div className='character-properties'>
-        <span>Properties</span>
+        <span>{Localize['en'].properties}</span>
         <div className="facial-expression">
           <span>Facial Expression</span>
           <select disabled={!equippedItems.Face} onChange={this.changeEmotion.bind(this)} value={emotion}>
