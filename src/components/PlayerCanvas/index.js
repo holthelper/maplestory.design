@@ -3,7 +3,7 @@ import './index.css'
 
 class PlayerCanvas extends Component {
   render() {
-    const { selectedItems, action, emotion, skin } = this.props
+    const { selectedItems, action, emotion, skin, MercEars } = this.props
 
     const itemsWithEmotion = selectedItems
       .filter(itemId => itemId)
@@ -11,7 +11,7 @@ class PlayerCanvas extends Component {
 
     return (
       <div className="canvas">
-        <img src={`https://labs.maplestory.io/api/character/center/${skin}/${(itemsWithEmotion.join(',') || 1102039)}/${action}`} alt="character"/>
+        <img src={`https://labs.maplestory.io/api/character/center/${skin}/${(itemsWithEmotion.join(',') || 1102039)}/${action}?showears=${MercEars}`} alt="character"/>
       </div>
     )
   }

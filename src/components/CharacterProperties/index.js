@@ -92,6 +92,13 @@ class CharacterProperties extends Component {
             <option value='2011'>Clay</option>
           </select>
         </div>
+        <div className="merc-ears">
+          <span>Merc Ears</span>
+          <input
+            name="showMercEars"
+            type="checkbox"
+            onChange={this.changeMercEars.bind(this)} />
+        </div>
         <div className="disclaimer">
           <p>This project is actively being developed and considered a <b>prototype</b>.</p>
         </div>
@@ -109,6 +116,10 @@ class CharacterProperties extends Component {
 
   changeAction (e) {
     this.props.onChangeAction(e.target.value)
+  }
+  
+  changeMercEars(e) {
+    this.props.onChangeMercEars(e.target.checked);
   }
 }
 
