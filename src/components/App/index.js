@@ -21,7 +21,7 @@ class App extends Component {
       emotion: 'default',
       skin: Number(localStorage['skin']) || 2000,
       isModalOpen: isOpen,
-      MercEars: false
+      MercEars: localStorage['MercEars'] || false
     }
 
     this.updateBannerAdBlur()
@@ -83,6 +83,7 @@ class App extends Component {
   
   userChangedMercEars(MercEars) {
     this.setState({ MercEars });
+    localStorage['MercEars'] = MercEars;
   }
 
   userChangedSkin (skin) {
