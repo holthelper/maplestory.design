@@ -53,7 +53,7 @@ class CharacterProperties extends Component {
 
   render() {
     const { actions, emotions } = this.state
-    const { equippedItems, emotion, action, skin } = this.props
+    const { equippedItems, emotion, action, skin, mercEars } = this.props
 
     return (
       <div className='character-properties'>
@@ -93,10 +93,10 @@ class CharacterProperties extends Component {
           </select>
         </div>
         <div className="merc-ears">
-          <span>Merc Ears</span>
+          <span>Mercedes Ears</span>
           <input
-            name="showMercEars"
             type="checkbox"
+            checked={mercEars}
             onChange={this.changeMercEars.bind(this)} />
         </div>
         <div className="disclaimer">
@@ -117,7 +117,7 @@ class CharacterProperties extends Component {
   changeAction (e) {
     this.props.onChangeAction(e.target.value)
   }
-  
+
   changeMercEars(e) {
     this.props.onChangeMercEars(e.target.checked);
   }

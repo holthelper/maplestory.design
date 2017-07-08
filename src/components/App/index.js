@@ -21,7 +21,7 @@ class App extends Component {
       emotion: 'default',
       skin: Number(localStorage['skin']) || 2000,
       isModalOpen: isOpen,
-      MercEars: localStorage['MercEars'] || false
+      mercEars: localStorage['mercEars'] == "true" || localStorage['mercEars'] === true
     }
 
     this.updateBannerAdBlur()
@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   render() {
-    const { selectedItems, action, emotion, skin, isModalOpen, MercEars } = this.state
+    const { selectedItems, action, emotion, skin, isModalOpen, mercEars } = this.state
     this.updateBannerAdBlur()
 
     return (
@@ -53,7 +53,7 @@ class App extends Component {
           action={action}
           emotion={emotion}
           skin={skin}
-          MercEars={MercEars} />
+          mercEars={mercEars} />
         <ItemListing onItemSelected={this.userSelectedItem.bind(this)} />
         <EquippedItems
           equippedItems={selectedItems}
@@ -65,7 +65,7 @@ class App extends Component {
           action={action}
           emotion={emotion}
           skin={skin}
-          MercEars={MercEars}  
+          mercEars={mercEars}
           onChangeAction={this.userChangedAction.bind(this)}
           onChangeEmotion={this.userChangedEmotion.bind(this)}
           onChangeSkin={this.userChangedSkin.bind(this)}
@@ -80,10 +80,10 @@ class App extends Component {
   setModalOpen (isModalOpen) {
     this.setState({ isModalOpen })
   }
-  
-  userChangedMercEars(MercEars) {
-    this.setState({ MercEars });
-    localStorage['MercEars'] = MercEars;
+
+  userChangedMercEars(mercEars) {
+    this.setState({ mercEars });
+    localStorage['mercEars'] = mercEars;
   }
 
   userChangedSkin (skin) {
